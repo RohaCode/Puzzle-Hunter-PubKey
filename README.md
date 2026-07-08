@@ -120,18 +120,18 @@ For the **AMD Radeon RX 6600 XT**, you can use the following profiles to find th
 1. **Run a benchmark to test GPU hashrate:**
 
    ```powershell
-   .\hunter.exe -k 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d -p 40 -b 4 -G 384 -t 256 -n 1024 --bench 5
+   .\hunter.exe -k 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 -p 135 -b 4 -G 384 -t 256 -n 1024 --bench 5
    ```
 
 2. **Run self-test mode:**
 
    ```powershell
-   .\hunter.exe -k 02f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9 -p 2 -b 33 -G 384 -t 256 -n 1024 --selftest
+   .\hunter.exe -k 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 -p 135 -b 33 -G 384 -t 256 -n 1024 --selftest
    ```
 
 3. **Search for a full match inside Puzzle 35 (first 4 bytes checked on GPU):**
    ```powershell
-   .\hunter.exe -k 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d -p 35 -b 4 -G 384 -t 256 -n 1024
+   .\hunter.exe -k 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 -p 135 -b 4 -G 384 -t 256 -n 1024
    ```
 
 ### Example Search Output (Puzzle 35, partial and full match):
