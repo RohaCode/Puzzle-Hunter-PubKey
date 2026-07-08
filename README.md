@@ -104,7 +104,7 @@ For the **AMD Radeon RX 6600 XT**, you can use the following profiles to find th
 ### 2. Max Performance Profile ⚡ (Recommended)
 
 - **Parameters:** `-k <KEY> -p <BIT> -G 384 -t 256 -n 1024` or `-G 768 -t 256 -n 1024`
-- **Speed:** Very High (~1.7+ Gkeys/s)
+- **Speed:** Very High (~1.8+ Gkeys/s)
 - **Pros:** Optimal occupancy and throughput.
 
 ### 3. Aggressive Profile 🔥
