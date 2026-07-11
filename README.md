@@ -104,7 +104,7 @@ For the **AMD Radeon RX 6600 XT**, you can use the following profiles to find th
 ### 2. Max Performance Profile ⚡ (Recommended)
 
 - **Parameters:** `-k <KEY> -p <BIT> -G 384 -t 256 -n 1024` or `-G 768 -t 256 -n 1024`
-- **Speed:** Very High (~1.8+ Gkeys/s)
+- **Speed:** Very High (~1.7+ Gkeys/s)
 - **Pros:** Optimal occupancy and throughput.
 
 ### 3. Aggressive Profile 🔥
@@ -120,18 +120,18 @@ For the **AMD Radeon RX 6600 XT**, you can use the following profiles to find th
 1. **Run a benchmark to test GPU hashrate:**
 
    ```powershell
-   .\hunter.exe -k 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 -p 135 -b 4 -G 384 -t 256 -n 1024 --bench 5
+   .\hunter.exe -k 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d -p 40 -b 4 -G 384 -t 256 -n 1024 --bench 5
    ```
 
 2. **Run self-test mode:**
 
    ```powershell
-   .\hunter.exe -k 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 -p 135 -b 33 -G 384 -t 256 -n 1024 --selftest
+   .\hunter.exe -k 02f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9 -p 2 -b 33 -G 384 -t 256 -n 1024 --selftest
    ```
 
 3. **Search for a full match inside Puzzle 35 (first 4 bytes checked on GPU):**
    ```powershell
-   .\hunter.exe -k 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 -p 135 -b 4 -G 384 -t 256 -n 1024
+   .\hunter.exe -k 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d -p 35 -b 4 -G 384 -t 256 -n 1024
    ```
 
 ### Example Search Output (Puzzle 35, partial and full match):
@@ -167,6 +167,23 @@ Match type    : FULL
 Private Key   : 00000000000000000000000000000000000000000000000000000004aed21170
 Public Key    : 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d
 ```
+
+---
+
+## 💾 Pause, Resume & Progress Persistence
+
+The program provides robust mechanisms for pausing/resuming search sessions and persisting search progress across runs or unexpected system restarts:
+
+### 1. ⏯️ Pause and Resume (Spacebar)
+- Press **`[SPACE]`** (or `p`/`P`) during search to pause.
+- The terminal display will show `[PAUSED] Press Space to resume...` on the same line.
+- Press **`[SPACE]`** again to resume the search on the same line without cluttering the console.
+- **Accurate Statistics:** The search duration spent on pause is excluded from the speed calculations. Resuming does not reset the total checked keys counter.
+
+### 2. 📝 Automatic Progress Saving & Recovery
+- **Auto-save:** The cumulative number of checked keys and elapsed search time are automatically saved every **60 seconds** to a file named `progress_pub_<target_pubkey>.txt` in the program's directory.
+- **Save on Exit (ESC):** Pressing **`[ESC]`** immediately saves the final progress and safely exits.
+- **Crash/Restart Protection:** If the system rebooted or the driver crashed, just start the search with the same target public key again. The program will print `Loaded previous progress: ... keys checked, ... elapsed` and resume accumulating statistics exactly where you left off.
 
 ---
 
